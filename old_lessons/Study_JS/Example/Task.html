@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .diagonal{
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(-35deg, #E15E83 50%, #F4E770 50%);
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+        }
+
+        .showButton{
+             width: 200px;
+             height: 50px;
+             box-shadow: 0 0 10px rgba(0,0,0,0.5);
+             border: 0px;
+        }
+
+        .hide-window{
+            display: none;
+            position: relative;
+            width: 600px;
+            height: 600px;
+        }
+          
+        .full-window{
+            position: absolute;
+            display: flex;
+            background: white;
+            width: 60%;
+            height: 80%;
+            opacity: 1; 
+            flex-direction: column;
+            border-radius: 10px;
+        }
+
+        .header{
+            position: relative;
+            width: 100%;
+            height: 5%;
+            background: #e8ebf3;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            /* margin-left: 1rem; */
+        }
+
+        .main{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-top{
+            position: relative;
+            width: 100%;
+            height: 40%;
+            background: #dae0e4;   
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .square-top {
+            width: 20%;
+            height: 10%;
+            background-color: #c5cbcf;
+        }
+
+        .square-top-small {
+            width: 7%;
+            height: 10%;
+            background-color: #c5cbcf;
+            margin-top: 2%;
+        }
+        
+        .bttns{
+            top: 40%;
+            position: relative;
+            height: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            padding-left: 25px;
+        }
+
+        .close-btn {
+            width: 10px;
+            height: 10px;
+            background: #ee4d5e;
+            border-radius: 50px;
+            border: 0px;
+            margin-right: 6px;
+        }
+
+        .full-btn {
+            width: 10px;
+            height: 10px;
+            background: #f49a3d;
+            border-radius: 50px;
+            border: 0px;
+            margin-right: 6px;
+        }
+
+        .tray-btn {
+            width: 10px;
+            height: 10px;
+            background: #4bb061;
+            border-radius: 50px;
+            border: 0px;
+        }
+        
+        .content-bottom{
+            position: relative;
+            width: 100%;
+            height: 60%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0 0 10px 10px;
+            /* margin-bottom: 10%; */
+        }
+
+        .main-bottom{
+            width: 18%;
+            height: 70%;
+            margin-right: 2rem;
+            flex-direction: column;
+        }
+
+        .bottom-square{
+            width: 100%;
+            height: 50%;
+            background-color: #dae0e4;
+        }
+
+        .rectangle-1{
+            width: 40%;
+            height: 10%;
+            background-color: #c6cacd;
+            margin-top: 1rem;
+            border-radius: 5px;
+        }
+
+        .rectangle-2{
+            width: 80%;
+            height: 10%;
+            background-color: #c6cbcb;
+            margin-top: 1rem;
+            border-radius: 5px;
+        }
+
+        .rectangle-3{
+            width: 60%;
+            height: 10%;
+            background-color: #c6cacd;
+            margin-top: 1rem;
+            border-radius: 5px;
+        }
+
+        .rectangle-4{
+            width: 30%;
+            height: 10%;
+            background-color: #c6cacd;
+            margin-top: 1rem;
+            border-radius: 5px;
+        }
+
+    </style>
+    <script>
+        function showWindow() {
+            document.getElementById('dialog').classList.toggle('full-window');
+            document.getElementById('dialog').classList.toggle('hide-window');
+        }
+    </script>
+</head>
+<body>
+    <div class="diagonal">
+    <button onclick="showWindow()" class="showButton">Button</button>
+        <div id="dialog" class="hide-window">
+            <div class="header">
+                <div class="bttns">   
+                    <button id="main" onclick="showWindow()" class="close-btn"></button>
+                    <button class="full-btn"></button>
+                    <button class="tray-btn"></button>
+                </div>
+            </div>
+            <div class="main">
+                <div class="content-top">
+                    <h1 class=square-top></h1>
+                    <p class=square-top-small></p>
+                </div>
+                <div class="content-bottom">
+                    <div class="main-bottom">
+                        <div class="bottom-square"></div>
+                        <div class="rectangle-1"></div>
+                    </div>
+                    <div class="main-bottom">
+                        <div class="bottom-square"></div>
+                        <div class="rectangle-2"></div>
+                    </div>
+                    <div class="main-bottom">
+                        <div class="bottom-square"></div>
+                        <div class="rectangle-3"></div>
+                    </div>
+                    <div class="main-bottom">
+                        <div class="bottom-square"></div>
+                        <div class="rectangle-4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

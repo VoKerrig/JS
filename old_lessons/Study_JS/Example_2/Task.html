@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #d4eafd;
+        }
+
+        input {
+            outline:none;
+        }
+
+        select {
+            outline:none;
+        }
+        
+        .parent {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main {
+            width: 30%;
+            height: 70%;
+            position: relative;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;    
+            border-radius: 5px;
+            box-shadow: 5px 12px 27px 0px #b9d3e9;        
+        }   
+
+        .main-content-top {
+            width: 85%;
+            height: 25%;
+            position: relative;
+            background: white;
+            display: block;
+            margin-top: 30%;    
+            z-index: 2;                
+        }  
+
+        .main-content-bottom {
+            width: 85%;
+            height: 20%;
+            position: relative;
+            background: white;
+            display: flex;
+            justify-content: space-between;   
+            margin-top: 20px; 
+            z-index: 1;      
+        }  
+
+        .main-content-bottom-2 {
+            height: 100%;
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .card{
+            width: 400px;
+            height: 250px;
+            position: absolute;
+            display: block;
+            background-image: url(https://www.patriotathome.org/wp-content/uploads/2016/11/blue-gradient-colors-gradient-blue-color-gradient-background-photoshop-1024x658.png);
+            background-size: cover;
+            border-radius: 50px;
+            top: -135px;
+            z-index: 3;
+            box-shadow: 5px 12px 27px 0px #b9d3e9;  
+        }
+
+        H1 { 
+            font-size: 100%; 
+            font-style: arial;
+            color: #333366; 
+        }
+
+        .edit {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 15px;
+            border:1px solid #e6e5e5;
+            font-size: 18px;
+            font-family: Verdana;  
+            border-radius: 5px;
+        }
+        
+        .edit:focus {
+            box-shadow: 5px 12px 27px 0px #e7e8ec; 
+            border:2px solid #9db8d3;
+        }
+
+        .select {
+            box-sizing: border-box;
+            width: 100%;
+            height: 55px;
+            border:1px solid #e6e5e5;
+            border-radius: 5px;
+        }
+
+        .select:focus{
+            box-shadow: 5px 12px 27px 0px #e7e8ec; 
+            border:2px solid #9db8d3;
+        }
+
+        .option{
+            background: #e6e5e7;
+        }
+
+        .main-button{
+            width: 85%;
+            height: 10%;
+            box-shadow: 12px 10px 17px 7px #c2d6f3; 
+            margin-top: 10%;
+        }
+
+        .button {
+            width: 100%;
+            height: 100%;
+            background-color: #0055d4;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            font-family: 'Trebuchet MS', sans-serif;
+            font-size: 18px;
+        }
+
+        .card-number {
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            margin-top: 80px;
+            margin-left: 25px;
+        }
+
+        .card-number-item {
+            height: 20px;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            caret-color: transparent;
+            font-size: 28px;
+            color: white;
+        }
+
+        .card-name-item {
+            width: 100%;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            caret-color: transparent;
+            font-size: 20px;
+            color: white;
+            overflow-x: scroll;
+            white-space: nowrap;
+        }
+
+        .card-name-item::-webkit-scrollbar {
+            display: none;
+        }
+
+        .card-bottom{
+            color: white;
+            display: flex;
+            align-items: flex-start;
+            margin-top: 50px;
+        }
+
+        .card-bottom-info{
+            width: 70%;
+            color: white;
+            margin-left: 25px;
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="main">
+            <div class="card">
+                <div class="card-number">
+                    <label for="cardNumber">
+                        <div class="card-number-item" id="cardNumberRepeat"></div>
+                    </label>
+                </div>
+                <div class="card-bottom">
+                    <label for="cardName" class="card-bottom-info" >
+                        <div style="opacity: 0.5; font-size: 14px; margin-bottom: 6px; cursor: pointer;">Card Holder</div>
+                        <div style="font-size: 20px; text-transform: uppercase; cursor: pointer; margin-right: 12px">
+                            <div class="card-name-item" id="cardNameRepeat">Full Name</div>
+                        </div>
+                    </label>
+                    <div style="width: 80px; cursor: pointer; display: inline-flex; flex-wrap: wrap; justify-content: space-between">
+                        <label for="cardMonth" style="width:100%; opacity: 0.5; font-size: 14px; cursor: pointer;" >Expires</label>
+                        <label for="cardMonth" style="margin-top:10px; position: relative; cursor: pointer;">
+                            <div id="cardMonthRepeat">MM/</div>
+                        </label>
+                        <label for="cardYear" style="margin-top:10px; position: relative; cursor: pointer; margin-right: 20px;">
+                            <div id="cardYearRepeat">YY</div>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="main-content-top">
+                <h1>Card Number </h1>
+                <div>
+                    <input class="edit" type="text" id="cardNumber" maxlength="19">
+                </div>
+                <h1>Card Name </h1>
+                <div>
+                    <input class="edit" type="text" id="cardName">
+                </div>
+            </div>
+            <div class="main-content-bottom">
+                <div class="main-content-bottom-2">
+                <h1>Expiraton Date </h1>
+                    <select class="select" id="cardMonth">
+                        <option selected disabled class="option">Month</option>
+                        <option class="option">01</option>
+                        <option class="option">02</option>
+                        <option class="option">03</option>
+                        <option class="option">04</option>
+                        <option class="option">05</option>
+                        <option class="option">06</option>
+                        <option class="option">07</option>
+                        <option class="option">08</option>
+                        <option class="option">09</option>
+                        <option class="option">10</option>
+                        <option class="option">11</option>
+                        <option class="option">12</option>
+                    </select>
+                </div>    
+                    <div class="main-content-bottom-2">
+                    <select class="select" id="cardYear">
+                        <option selected disabled class="option">Year</option>
+                        <option class="option">2021</option>
+                        <option class="option"> 2022</option>
+                        <option class="option">2023</option>
+                        <option class="option">2024</option>
+                        <option class="option">2025</option>
+                        <option class="option">2026</option>
+                        <option class="option">2027</option>
+                        <option class="option">2028</option>
+                        <option class="option">2029</option>
+                        <option class="option">2030</option>
+                        <option class="option">2031</option>
+                    </select>
+                </div>
+                <div class="main-content-bottom-2">
+                    <h1>CVV</h1>                 
+                    <input  class="edit" type="text" id="cvv" maxlength="3">
+                </div> 
+            </div>
+            <div class="main-button">
+                <button class="button" id="submit-btn">Submit</button>
+            </div>
+    </div>
+    <script>
+        function numberValidation(inputElement) {
+            inputElement.addEventListener('keydown', function(event) {
+                // Разрешаем: backspace, delete, tab и escape
+                if ( event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || event.keyCode == 32 || 
+                    // Разрешаем: Ctrl+A
+                    (event.keyCode == 65 && event.ctrlKey === true) ||
+                    // Разрешаем: home, end, влево, вправо
+                    (event.keyCode >= 35 && event.keyCode <= 39)) {
+                    
+                    // Ничего не делаем
+                    return;
+                } else {
+                    // Запрещаем все, кроме цифр на основной клавиатуре, а так же Num-клавиатуре
+                    if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
+                        event.preventDefault();
+                    }
+                }
+            })
+        }
+
+        const cardNumber1 = document.getElementById('cardNumber')
+        const cardNumber2 = document.getElementById('cardNumberRepeat')
+
+        cardNumber1.addEventListener('input', function (repeat) {
+            cardNumber2.innerText = cardNumber1.value
+        })
+
+        const cardName1 = document.getElementById('cardName')
+        const cardName2 = document.getElementById('cardNameRepeat')
+
+        cardName1.addEventListener('input', function (repeat) {
+            cardName2.innerText = cardName1.value
+        })
+
+        const cardMonth1 = document.getElementById('cardMonth')
+        const cardMonth2 = document.getElementById('cardMonthRepeat')
+
+        cardMonth1.addEventListener('input', function (repeat) {
+            cardMonth2.innerText = cardMonth1.value
+        })
+
+        const cardYear1 = document.getElementById('cardYear')
+        const cardYear2 = document.getElementById('cardYearRepeat')
+
+        cardYear1.addEventListener('input', function (repeat) {
+            cardYear2.innerText = cardYear1.value
+        })
+
+        const button = document.getElementById("submit-btn")
+        button.addEventListener("click", () => {
+            alert("Отправлено")
+        })
+     
+        numberValidation(document.getElementById('cardNumber'))
+        numberValidation(document.getElementById('cvv'))
+    </script>
+</body>
+</html>
