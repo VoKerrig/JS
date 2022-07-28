@@ -58,26 +58,13 @@
     width: 600px;
 }
 
-// .input {
-//     display: block;
-//     width: 600px;
-//     height: 30px;
-//     border: 1px solid #bdbdbd;
-//     border-radius: 0.25rem;
-//     font-size: 1rem;
-//     font-family: inherit;
-// }
+.add-button {
+    display: flex;
+    width: 490px;
+    justify-content: space-around;
+    align-items: center;
+}
 
-// .button {
-//     display: block;
-//     width: 60px;
-//     margin-right: 20px;
-//     color: white;
-//     background-color: #347ab6;
-//     border-radius: 0.25rem;
-//     border: 1px solid black;
-//     cursor: pointer;
-// }
 
 @media screen and (max-width: 500px) {
     .header-text {

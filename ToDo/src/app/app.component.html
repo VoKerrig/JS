@@ -6,12 +6,19 @@
     <textarea class="textarea" wrap="off" maxlength="40">ToDo List</textarea>
   </div>
   <div class="main-input">
-    <!-- <input class="input" type="text" placeholder="New Task">
-    <button class="button">Add</button> -->
+
     <mat-form-field>
-      <input matInput placeholder="New Task" maxlength="200">
-      <!-- <button matButton ></button> -->
+      <input #newItem matInput placeholder="New Task" maxlength="200" (keyup.enter)="addItem(newItem.value); newItem.value = ''">
     </mat-form-field>
+
+    <div class="add-button"> 
+      <button mat-raised-button color="primary" class="btn-primary" (click)="addItem(newItem.value); newItem.value = ''">Add</button> 
+    </div>
+
   </div>
+
+  <ul>
+    <li *ngFor="let item of items" type="none">{{item.description}}</li>
+  </ul>
 
 </div>
