@@ -17,8 +17,34 @@
 
   </div>
 
-  <ul>
-    <li *ngFor="let item of items" type="none">{{item.description}}</li>
-  </ul>
+  <div cdkDropListGroup class="main-tasks">
+    <div class="container" >
+      <h2>Tasks</h2>
+
+      <div
+        cdkDropList
+        #allItemsList="cdkDropList"
+        [cdkDropListData]="allItems"
+        [cdkDropListConnectedTo]="[doneList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of allItems" cdkDrag>{{item}}</div>
+      </div>
+    </div>
+
+    <div class="container-done">
+      <h2>Done</h2>
+
+      <div
+        cdkDropList
+        #doneList="cdkDropList"
+        [cdkDropListData]="done"
+        [cdkDropListConnectedTo]="[allItemsList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+      </div>
+    </div>
+  </div>
 
 </div>
