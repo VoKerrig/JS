@@ -2,49 +2,6 @@
   <div class="header">
     <div class="header-text">ToDo List</div>
   </div>
-  <div class="main-name">
-    <textarea class="textarea" wrap="off" maxlength="40">ToDo List</textarea>
-  </div>
-  <div class="main-input">
-
-    <mat-form-field>
-      <input #newItem matInput placeholder="New Task" maxlength="200" (keyup.enter)="addItem(newItem.value); newItem.value = ''">
-    </mat-form-field>
-
-    <div class="add-button"> 
-      <button mat-raised-button color="primary" class="btn-primary" (click)="addItem(newItem.value); newItem.value = ''">Add</button> 
-    </div>
-
-  </div>
-
-  <div cdkDropListGroup class="main-tasks">
-    <div class="container" >
-      <h2>Tasks</h2>
-
-      <div
-        cdkDropList
-        #allItemsList="cdkDropList"
-        [cdkDropListData]="allItems"
-        [cdkDropListConnectedTo]="[doneList]"
-        class="example-list"
-        (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let item of allItems" cdkDrag>{{item}}</div>
-      </div>
-    </div>
-
-    <div class="container-done">
-      <h2>Done</h2>
-
-      <div
-        cdkDropList
-        #doneList="cdkDropList"
-        [cdkDropListData]="done"
-        [cdkDropListConnectedTo]="[allItemsList]"
-        class="example-list"
-        (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
-      </div>
-    </div>
-  </div>
-
+  <add-new-list></add-new-list>
+  <list-detail></list-detail>
 </div>
