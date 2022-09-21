@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-// import { TaskList } from './task-list-component/task-list.component';
-// import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { StorageService } from '../services/storage.service';
 
 @Component({
     selector: 'list-detail',
@@ -9,23 +8,16 @@ import { Component } from '@angular/core';
 })
 
 export class ListDetail {
-    // allItems: string[] = [];
-    // done: string[] = [];
 
-    //   drop(event: CdkDragDrop<string[]>) {
-    //   if (event.previousContainer === event.container) {
-    //     moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    //   } else {
-    //     transferArrayItem(
-    //       event.previousContainer.data,
-    //       event.container.data,
-    //       event.previousIndex,
-    //       event.currentIndex,
-    //     );
-    //   }
-    // }
-  
-    // addItem(value:string) {
-    //   this.allItems.push(value);
-    // }
-  }
+    constructor(private storageService: StorageService) { };
+
+    addItem(value:string) {
+        this.storageService.allItems.push(value);
+        console.log(this.storageService.allItems);
+        this.storageService.storeName(value);
+    }
+
+    storeClear() {
+        localStorage.clear()
+    }
+}

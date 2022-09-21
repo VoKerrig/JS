@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { StorageService } from '../../services/storage.service';
 
 @Component({
     selector: 'task-list',
@@ -7,11 +8,18 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
     styleUrls: ['./task-list.component.scss']
 })
 
-export class TaskList {
+export class TaskList implements OnInit{
+
+  constructor(private storageService: StorageService) { }
+  
     allItems: string[] = [];
     done: string[] = [];
+  ngOnInit(): void {
+    this.allItems = this.storageService.allItems;
+    this.done = this.storageService.done;
+  }
 
-      drop(event: CdkDragDrop<string[]>) {
+    drop(event: CdkDragDrop<string[]>) {
       if (event.previousContainer === event.container) {
         moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
       } else {
@@ -22,9 +30,5 @@ export class TaskList {
           event.currentIndex,
         );
       }
-    }
-  
-    addItem(value:string) {
-      this.allItems.push(value);
     }
   }
