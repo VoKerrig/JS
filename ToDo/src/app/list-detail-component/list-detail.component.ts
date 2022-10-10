@@ -12,9 +12,7 @@ export class ListDetail {
     constructor(private storageService: StorageService) { };
 
     addItem(value:string) {
-        this.storageService.allItems.push(value);
-        console.log(this.storageService.allItems);
-        this.storageService.storeName(value);
+        this.storageService.addTask(value)
     }
 
     storeClear() {

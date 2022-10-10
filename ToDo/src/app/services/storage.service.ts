@@ -1,19 +1,34 @@
 import { Injectable, ViewChild } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StorageService {
-  allItems: string[] = [];
+  private _task$: BehaviorSubject<string[]>;
   done: string[] = [];
+  tasks$: Observable<string[]>;
 
-  constructor() { }
+  constructor() {
+    this._task$ = new BehaviorSubject(JSON.parse(localStorage.getItem('Task') as string) || [] as string[]);
+    this.tasks$ = this._task$.asObservable();
+    console.log('test');
+   }
 
   public test() {
     console.log('1')
   }
 
-  storeName(value:string) {
-    localStorage.setItem('Task', JSON.stringify(value))
+  getTasks() {
+    return this._task$.getValue()
+  }
+
+  addTask(value: string):void {
+    const tasks = this._task$.getValue();
+    console.log(tasks)
+    tasks.push(value);
+    this._task$.next(tasks);
+    localStorage.setItem('Task', JSON.stringify(this.getTasks()));
+    
   }
 }
