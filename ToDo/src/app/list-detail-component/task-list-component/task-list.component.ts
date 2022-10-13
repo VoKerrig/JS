@@ -22,6 +22,8 @@ export class TaskList implements OnInit{
   }
 
   drop(event: CdkDragDrop<string[]>) {
+    console.log(event);
+    
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {

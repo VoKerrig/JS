@@ -12,12 +12,8 @@ export class StorageService {
   constructor() {
     this._task$ = new BehaviorSubject(JSON.parse(localStorage.getItem('Task') as string) || [] as string[]);
     this.tasks$ = this._task$.asObservable();
-    console.log('test');
+    // console.log('test');
    }
-
-  public test() {
-    console.log('1')
-  }
 
   getTasks() {
     return this._task$.getValue()

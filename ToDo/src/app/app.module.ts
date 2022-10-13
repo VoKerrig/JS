@@ -10,6 +10,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AddNewList } from './add-new-list-component/add-new-list.component';
 import { ListDetail } from './list-detail-component/list-detail.component';
 import { TaskList } from './list-detail-component/task-list-component/task-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [	
@@ -25,7 +26,8 @@ import { TaskList } from './list-detail-component/task-list-component/task-list.
     MatFormFieldModule,
     MatInputModule,
     MatDividerModule,
-    DragDropModule
+    DragDropModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
